@@ -56,8 +56,38 @@ public class UserDaoService {
                 iterator.remove();
                 return user;
             }
+        }
+        return null; //없으면 Null 반환
+    }
 
+    public User editById(User userinput, int id){
+        Iterator<User> iterator = users.iterator();
 
+        while (iterator.hasNext()){
+            User user = iterator.next();
+
+            if (user.getId() == id){ // 있으면
+                user.setId(id);
+                user.setName(userinput.getName());
+                user.setJoinDate(userinput.getJoinDate());
+                return user;
+            }
+        }
+        return null; //없으면 Null 반환
+    }
+
+    public User editById(User userinput){
+        Iterator<User> iterator = users.iterator();
+
+        while (iterator.hasNext()){
+            User user = iterator.next();
+
+            if (user.getId() == userinput.getId()){ // 있으면
+                user.setId(userinput.getId());
+                user.setName(userinput.getName());
+                user.setJoinDate(userinput.getJoinDate());
+                return user;
+            }
         }
         return null; //없으면 Null 반환
     }

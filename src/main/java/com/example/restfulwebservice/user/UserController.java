@@ -39,7 +39,7 @@ public class UserController {
         User savedUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id")
+                .path("/{id}")
                 .buildAndExpand(savedUser.getId())
                 .toUri();
 
@@ -54,4 +54,28 @@ public class UserController {
             throw new UserNotFoundException(String.format("id[%s] not found",id));
         }
     }
+
+    @PutMapping("/users/{id}") //링크에 숫자를 더해줘야하는 버젼
+    public void editUser(@RequestBody User user, @PathVariable int id){
+        User editUser = service.editById(user,id);
+    }
+//    PUT - http://localhost:8088/users/2
+//    {
+//        "name": "New User",
+//            "joinDate": "2021-01-14T10:55:11.877+00:00"
+//    }
+//    이렇게 해주면 2번 자료가 New User로 바뀜
+
+    @PutMapping("/users") //링크에 숫자를 안하고 그냥 PUT으로 정보를 줄때 숫자를 더해주는 버젼
+    public void editUser(@RequestBody User user){
+        User editUser = service.editById(user);
+    }
+
+//    PUT - http://localhost:8088/users
+//    {
+//        "id": 2,
+//            "name": "New User",
+//            "joinDate": "2021-01-14T10:55:11.877+00:00"
+//    }
+//    이렇게 해주면 2번 자료가 똑같이 바뀜
 }
