@@ -16,18 +16,19 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping("/users")
+    //모든 유저 보기
+    @GetMapping("/users") //localhost:8088/users 하면 이게 실행됨
     public List<User> retrieveAllUsers(){
         return service.findAll();
     }
 
     //GET /users/1 or /users/10 ->String
-    @GetMapping("/users/{id}")
+    @GetMapping("/users/{id}") //뒤에 숫자 입력하면 그사람 아이디 검색
     public User retrieveUser(@PathVariable int id){
         return service.findOne(id);
     }
 
-    @PostMapping("/users")
+    @PostMapping("/users") // 유저 추가해주는 것
     public ResponseEntity<User> createUser(@RequestBody User user){
         User savedUser = service.save(user);
 
