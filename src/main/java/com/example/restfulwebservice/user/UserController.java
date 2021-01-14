@@ -28,7 +28,7 @@ public class UserController {
         User user = service.findOne(id);
 
         if (user ==null){ //존재하지 않는 데이터 추가하면 예외 처리
-            throw new UserNotFoundException(String.format("ID[%s] not found" ));
+            throw new UserNotFoundException(String.format("ID[%s] not found",id ));
         }
 
         return user;
