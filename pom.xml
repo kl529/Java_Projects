@@ -49,6 +49,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+<!--xml로 response를 받을 수 있게-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <scope>2.10.2</scope>
+        </dependency>
 
         <dependency>
 
@@ -71,6 +77,8 @@
             <version>6.0.7.Final</version>
 
         </dependency>
+
+
 
     </dependencies>
 
