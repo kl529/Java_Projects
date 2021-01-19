@@ -16,9 +16,9 @@ public class UserDaoService {
 
     //유저 정보
     static{
-        users.add(new User(1,"Kenn", new Date()));
-        users.add(new User(2,"Alice", new Date()));
-        users.add(new User(3,"Jiwon", new Date()));
+        users.add(new User(1,"Kenn", new Date(), "pass1", "980222-1111111"));
+        users.add(new User(2,"Alice", new Date(), "pass1", "850222-22221111"));
+        users.add(new User(3,"Jiwon", new Date(), "pass1", "740222-3333111"));
     }
 
     //유저 정보들 한눈에 보기
